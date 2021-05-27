@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS,cross_origin
 
 application = Flask(__name__)
 
@@ -19,11 +20,13 @@ tasks = [
 
 
 @application.route('/', methods=['GET'])
+@cross_origin()
 def home():
     return "hello Bhaskar this is home"
 
 
 @application.route('/getuserinfo', methods=['POST'])
+@cross_origin()
 def getUserInfo():
     if request.get_json() is not None:
         req_data=request.get_json()
