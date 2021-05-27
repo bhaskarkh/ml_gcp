@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS,cross_origin
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 tasks = [
     {
@@ -19,13 +19,13 @@ tasks = [
 ]
 
 
-@application.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 @cross_origin()
 def home():
     return "hello Bhaskar this is home"
 
 
-@application.route('/getuserinfo', methods=['POST'])
+@app.route('/getuserinfo', methods=['POST'])
 @cross_origin()
 def getUserInfo():
     if request.get_json() is not None:
@@ -56,6 +56,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run(debug=True)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
